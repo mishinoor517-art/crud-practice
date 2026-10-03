@@ -95,11 +95,22 @@ function Home() {
         method: "DELETE",
       });
 
-      const result = await response.json();
+      const responseBody = await response.text();
 
       if (!response.ok) {
+        let responseMessage = "(not provided)";
+
+        try {
+          const result = JSON.parse(responseBody);
+          responseMessage = result.message || result.error || responseMessage;
+        } catch {}
+
         throw new Error(
-          result.error || result.message || `Delete failed (${response.status})`
+          [
+            `HTTP status: ${response.status} ${response.statusText}`,
+            `Response message: ${responseMessage}`,
+            `Response body: ${responseBody || "(empty)"}`,
+          ].join("\n")
         );
       }
 
