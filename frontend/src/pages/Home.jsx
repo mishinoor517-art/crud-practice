@@ -91,7 +91,7 @@ function Home() {
     }
 
     try {
-      const response = await fetch(`/api/users/${selectedUser._id}`, {
+      const response = await fetch(`https://crud-practice-tau.vercel.app/api/users/${selectedUser._id}`, {
         method: "DELETE",
       });
 
