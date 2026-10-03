@@ -4,6 +4,8 @@ import DynamicTable from "../components/DynamicTable";
 import AddUser from "../components/AddUser";
 import EditUser from "../components/EditUser";
 
+const BACKEND_USERS_API_URL = "https://crud-practice-tau.vercel.app/api/users";
+
 function Home() {
   const columns = [
     { key: "phone", label: "Phone Number" },
@@ -91,7 +93,7 @@ function Home() {
     }
 
     try {
-      const response = await fetch(`https://crud-practice-tau.vercel.app/api/users/${selectedUser._id}`, {
+      const response = await fetch(`${BACKEND_USERS_API_URL}/${selectedUser._id}`, {
         method: "DELETE",
       });
 
