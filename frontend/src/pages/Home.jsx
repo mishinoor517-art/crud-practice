@@ -98,7 +98,9 @@ function Home() {
       const result = await response.json();
 
       if (!response.ok) {
-        throw new Error(result.error || "Failed to delete user");
+        throw new Error(
+          result.error || result.message || `Delete failed (${response.status})`
+        );
       }
 
       setData((previousData) =>
@@ -108,7 +110,7 @@ function Home() {
       setSelectedUser(null);
     } catch (error) {
       console.error("Failed to delete user:", error);
-      alert("Failed to delete user");
+      alert(`Failed to delete user: ${error.message}`);
     }
   };
 

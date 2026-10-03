@@ -34,6 +34,7 @@ const response = await fetch(`https://crud-practice-tau.vercel.app/api/users/${u
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
+          
         },
         body: JSON.stringify(formData),
       });
