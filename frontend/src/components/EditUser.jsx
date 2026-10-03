@@ -30,7 +30,7 @@ function EditUser({ user, onUserUpdated, onCancel }) {
     setLoading(true);
 
     try {
-      const response = await fetch(`/api/users/${user._id}`, {
+const response = await fetch(`https://crud-practice-tau.vercel.app/api/users/${user._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

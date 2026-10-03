@@ -20,7 +20,7 @@ function Home() {
   const [selectedUser, setSelectedUser] = useState(null);
 
   useEffect(() => {
-    fetch("/api/users")
+   fetch("https://crud-practice-tau.vercel.app/api/users")
       .then((response) => response.json())
       .then((users) => {
         setData(users);

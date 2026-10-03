@@ -25,7 +25,7 @@ function AddUser({ onUserAdded, onCancel }) {
     setLoading(true);
 
     try {
-      const response = await fetch("/api/users", {
+    const response = await fetch("https://crud-practice-tau.vercel.app/api/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
